@@ -9,6 +9,15 @@
 
     </p>
 
+    <el-select v-on:change="symbolChange" v-model="symbol">
+      <el-option
+        v-for="currency in symbolOptions"
+        :key="currency"
+        :label="currency"
+        :value="currency">
+      </el-option>
+    </el-select>
+
     <!-- <h2>Trying things</h2>
     <ul>
       <li v-for="(user, index) in users" :key="`user-${index}`">
@@ -22,38 +31,43 @@
 <script>
 
 import createUrl from './utils/create-url';
+import currencies from './utils/currencies';
+
+const loading = 'loading...';
 
 export default {
   name: 'Main',
   data() {
     return {
       msg: 'Welcome to Exchange Boy',
-      rate: 'loading...',
-      base: '',
-      symbol: '',
+      rate: loading,
+      base: 'EUR',
+      symbol: 'GBP',
       date: '',
+      symbolOptions: currencies,
+      symbolChange: () => {
+        this.requestRate();
+      },
+      requestRate: () => {
+        // start loading
+        this.rate = loading;
+        fetch(createUrl(this.base, this.symbol))
+          .then((response) => {
+            if (response.status === 200) {
+              response.json().then((payload) => {
+                // stop loading
+                this.rate = payload.rates[this.symbol];
+                this.date = payload.date;
+              });
+            } else {
+              // console.log('Error !');
+            }
+          });
+      },
     };
   },
   created() {
-    const base = 'EUR';
-    const symbol = 'GBP';
-
-    this.base = base;
-    this.symbol = symbol;
-
-    // start loading
-    fetch(createUrl(base, symbol))
-      .then((response) => {
-        if (response.status === 200) {
-          response.json().then((payload) => {
-            // stop loading
-            this.rate = payload.rates[symbol];
-            this.date = payload.date;
-          });
-        } else {
-          // console.log('Error !');
-        }
-      });
+    this.requestRate();
   },
 };
 </script>
