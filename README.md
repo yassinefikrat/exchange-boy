@@ -33,7 +33,12 @@ npm run lint -- --fix
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
-## Learning
+## Building blocks
 
 Vue JS
-Forcing myself to write Airbnb style JS using ESlint. I was not accustomed to trailing commas, spaces after if and semi-colons.
+ESlint enforcing Airbnb style
+Overpass Mono font (https://fonts.google.com/specimen/Overpass+Mono?selection.family=Overpass+Mono:400,700)
+
+## What I learned
+
+Syntax : I was not accustomed to trailing commas, spaces after if and semi-colons. Those are all strictly enforced by the Arbnb style. I feel more confortable with this code style. The linter is a godsend, it takes you by the hand and enforces a welcomed coherence.
