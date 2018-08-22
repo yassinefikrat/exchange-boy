@@ -4,19 +4,35 @@
 
     <p>
 
-      1 <span>{{base}}</span> is valued at <span>{{rate}}</span> <span>{{symbol}}</span>
+      1
+
+      <span class="select-currency">
+        <el-select v-on:change="change" v-model="base" size="mini">
+          <el-option
+            v-for="currency in currencies"
+            :key="currency"
+            :label="currency"
+            :value="currency">
+          </el-option>
+        </el-select>
+      </span>
+
+      is valued at <span>{{rate}}</span>
+
+      <span class="select-currency">
+        <el-select v-on:change="change" v-model="symbol" size="mini">
+          <el-option
+            v-for="currency in currencies"
+            :key="currency"
+            :label="currency"
+            :value="currency">
+          </el-option>
+        </el-select>
+      </span>
+
       as of <span>{{date}}</span> by the European Central Bank.
 
     </p>
-
-    <el-select v-on:change="symbolChange" v-model="symbol">
-      <el-option
-        v-for="currency in symbolOptions"
-        :key="currency"
-        :label="currency"
-        :value="currency">
-      </el-option>
-    </el-select>
 
     <!-- <h2>Trying things</h2>
     <ul>
@@ -44,8 +60,8 @@ export default {
       base: 'EUR',
       symbol: 'GBP',
       date: '',
-      symbolOptions: currencies,
-      symbolChange: () => {
+      currencies,
+      change: () => {
         this.requestRate();
       },
       requestRate: () => {
@@ -74,18 +90,24 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
+  .el-select {
+    max-width: 80px;
+  }
+
+  h1, h2 {
+    font-weight: normal;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
+    margin: 0 10px;
+  }
+  a {
+    color: #42b983;
+  }
+
 </style>

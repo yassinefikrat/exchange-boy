@@ -1,5 +1,6 @@
 export default
 [
+  'EUR',
   'USD',
   'JPY',
   'BGN',
