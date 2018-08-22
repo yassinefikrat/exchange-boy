@@ -32,3 +32,8 @@ npm run lint -- --fix
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Learning
+
+Vue JS
+Forcing myself to write Airbnb style JS using ESlint. I was not accustomed to trailing commas, spaces after if and semi-colons.
