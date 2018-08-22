@@ -2,11 +2,12 @@
 
 > Latest exchange rates
 
+## Goal
 Learning new things through a JS frontend project
 
-I'm gonna use https://exchangeratesapi.io/ to spin up a webapp that gives the latest exchange rate between any two currencies.
+I'm gonna use https://exchangeratesapi.io/ to spin up a web page that gives the latest exchange rate between any two currencies.
 
-## Build Setup
+## Commands
 
 ``` bash
 # install dependencies
@@ -35,10 +36,21 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ## Building blocks
 
-Vue JS
-ESlint enforcing Airbnb style
-Overpass Mono font (https://fonts.google.com/specimen/Overpass+Mono?selection.family=Overpass+Mono:400,700)
+- Vue JS
+
+- ESlint enforcing Airbnb style
+
+- Overpass font and Overpass Mono font
+
+- Date-fns
 
 ## What I learned
 
-Syntax : I was not accustomed to trailing commas, spaces after if and semi-colons. Those are all strictly enforced by the Arbnb style. I feel more confortable with this code style. The linter is a godsend, it takes you by the hand and enforces a welcomed coherence.
+### Vue
+Having tried AngularJS, Angular 2 and React, I went with Vue this time. A single simple page is exceedingly easy to make. I'm curious to see how it scales to complicated web apps.
+
+### CSS
+Very often I used to rely on UI components libraries to style basic things like buttons and forms. I made an effort this time to only use vanilla CSS to style the ```select``` components and the rest of the page.
+
+### Syntax
+I was not accustomed to trailing commas, spaces after if and semi-colons. Those are all strictly enforced by the Arbnb style. I feel more confortable with this code style. The linter is a godsend, it takes you by the hand and enforces a welcomed coherence.
