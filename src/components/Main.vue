@@ -30,7 +30,7 @@
         </option>
       </select>
 
-      as of <span>{{date}}</span> ago by the European Central Bank.
+      <span>{{date}}</span> by the European Central Bank.
 
     </p>
 
@@ -69,25 +69,33 @@ export default {
       requestRate: () => {
         // start loading
         this.rate = loading;
-        fetch(createUrl(this.base, this.symbol))
+        if (this.base === this.symbol) {
+          this.rate = 1;
+          this.date = `, unsurprisingly,`;
+        } else {
+          fetch(createUrl(this.base, this.symbol))
           .then((response) => {
             if (response.status === 200) {
               response.json().then((payload) => {
                 // stop loading
                 this.rate = payload.rates[this.symbol];
-                this.date = timeAgo(payload.date);
+                this.date = `as of ${timeAgo(payload.date)} ago`;
               });
             } else {
               // console.log('Error !');
             }
           });
+        }
       },
+
     };
+
   },
   created() {
     this.requestRate();
   },
 };
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
