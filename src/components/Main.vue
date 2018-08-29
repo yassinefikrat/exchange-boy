@@ -71,25 +71,24 @@ export default {
         this.rate = loading;
         if (this.base === this.symbol) {
           this.rate = 1;
-          this.date = `, unsurprisingly,`;
+          this.date = ', unsurprisingly,';
         } else {
           fetch(createUrl(this.base, this.symbol))
-          .then((response) => {
-            if (response.status === 200) {
-              response.json().then((payload) => {
+            .then((response) => {
+              if (response.status === 200) {
+                response.json().then((payload) => {
                 // stop loading
-                this.rate = payload.rates[this.symbol];
-                this.date = `as of ${timeAgo(payload.date)} ago`;
-              });
-            } else {
+                  this.rate = payload.rates[this.symbol];
+                  this.date = `as of ${timeAgo(payload.date)} ago`;
+                });
+              } else {
               // console.log('Error !');
-            }
-          });
+              }
+            });
         }
       },
 
     };
-
   },
   created() {
     this.requestRate();
