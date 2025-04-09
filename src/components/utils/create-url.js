@@ -10,6 +10,6 @@
 
     https://exchangeratesapi.io/
 */
-const createUrl = (base, symbol) => `https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbol}`;
+const createUrl = (base, symbol) => `https://api.exchangeratesapi.io/latest?base=${base}&symbols=${symbol}&access_key=27b60580e8f75be8f472a0dabdbcad8d`;
 
 export default createUrl;
